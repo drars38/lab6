@@ -112,6 +112,18 @@ namespace lab6
                 emitter.impactPoints.Add(newExplosion);
                 picDisplay.Invalidate();
             }
+            if (e.Button == MouseButtons.Right)
+            {
+                foreach (var counters in emitter.impactPoints.ToList())
+                {
+                    if (counters is Eater)
+                    {
+                        emitter.impactPoints.Remove(counters);
+                    }
+                }
+                picDisplay.Invalidate(); 
+            }
+
         }
     }
 }

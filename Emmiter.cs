@@ -27,7 +27,7 @@ namespace lab6
         public int MousePositionY;
         public float GravitationX = 0;
         public float GravitationY = 0;
-        public List<IImpactPoint> impactPoints = new List<IImpactPoint>(); // <<< ТАК ВОТ
+        public List<IImpactPoint> impactPoints = new List<IImpactPoint>(); // 
         public int ParticlesCount = 500;
 
         public void UpdateState()
