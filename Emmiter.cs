@@ -19,7 +19,7 @@ namespace lab6
         public int RadiusMax = 10; // максимальный радиус частицы
         public int LifeMin = 20; // минимальное время жизни частицы
         public int LifeMax = 100; // максимальное время жизни частицы
-        public int ParticlesPerTick = 5;
+        public int ParticlesPerTick = 15;
         public Color ColorFrom = Color.White; // начальный цвет частицы
         public Color ColorTo = Color.FromArgb(0, Color.Black); // конечный цвет частиц
         List<Particle> particles = new List<Particle>();
@@ -102,13 +102,14 @@ namespace lab6
             particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
 
             particle.Radius = 2 + Particle.rand.Next(10);
+            
         }
 
 
         public virtual Particle CreateParticle()
         {
             var particle = new ParticleColorful();
-            particle.FromColor = ColorFrom;
+            particle.FromColor = Color.White;
             particle.ToColor = ColorTo;
 
             return particle;

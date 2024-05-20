@@ -17,7 +17,9 @@ namespace lab6
         Emmiter emitter;
         GravityPoint point1; // добавил поле под первую точку
         GravityPoint point2; // добавил поле под вторую точку
-
+        private ColorPoint colorPoint1;
+        private ColorPoint colorPoint2;
+        private ColorPoint colorPoint3;
 
         public Form1()
         {
@@ -40,10 +42,50 @@ namespace lab6
                 X = picDisplay.Width / 2 - 100,
                 Y = picDisplay.Height / 2,
             };
+            // Инициализация точек ColorPoint
+            colorPoint1 = new ColorPoint { Color = Color.Red, Radius = 30, X = 50, Y = 50 };
+            colorPoint2 = new ColorPoint { Color = Color.Green, Radius = 30, X = 100, Y = 100 };
+            colorPoint3 = new ColorPoint { Color = Color.Blue, Radius = 30, X = 150, Y = 150 };
+
+
 
             // привязываем поля к эмиттеру
             emitter.impactPoints.Add(point1);
             emitter.impactPoints.Add(point2);
+            emitter.impactPoints.Add(colorPoint1);
+            emitter.impactPoints.Add(colorPoint2);
+            emitter.impactPoints.Add(colorPoint3);
+            trackBar1.Maximum = picDisplay.Width;
+            trackBar2.Maximum = picDisplay.Height;
+            trackBar3.Maximum = picDisplay.Width;
+            trackBar4.Maximum = picDisplay.Height;
+            trackBar5.Maximum = picDisplay.Width;
+            trackBar6.Maximum = picDisplay.Height;
+            trackBar1.Scroll += (sender, e) => { colorPoint1.X = trackBar1.Value; Refresh(); };
+            trackBar2.Scroll += (sender, e) => { colorPoint1.Y = trackBar2.Value; Refresh(); };
+            trackBar3.Scroll += (sender, e) => { colorPoint2.X = trackBar3.Value; Refresh(); };
+            trackBar4.Scroll += (sender, e) => { colorPoint2.Y = trackBar4.Value; Refresh(); };
+            trackBar5.Scroll += (sender, e) => { colorPoint3.X = trackBar5.Value; Refresh(); };
+            trackBar6.Scroll += (sender, e) => { colorPoint3.Y = trackBar6.Value; Refresh(); };
+
+            // Установка начальных значений TrackBar
+            trackBar1.Value = (int)colorPoint1.X;
+            trackBar2.Value = (int)colorPoint1.Y;
+            trackBar3.Value = (int)colorPoint2.X;
+            trackBar4.Value = (int)colorPoint2.Y;
+            trackBar5.Value = (int)colorPoint3.X;
+            trackBar6.Value = (int)colorPoint3.Y;
+
+            trackBarRadius.Maximum = 100; // Установите максимальный радиус
+            trackBarRadius.Value = colorPoint1.Radius; // Установите начальное значение радиуса
+            trackBarRadius.Scroll += (sender, e) =>
+            {
+                int newRadius = trackBarRadius.Value;
+                colorPoint1.Radius = newRadius;
+                colorPoint2.Radius = newRadius;
+                colorPoint3.Radius = newRadius;
+                Refresh();
+            };
         }
 
         private void plcDisplay_Click(object sender, EventArgs e)
@@ -123,6 +165,21 @@ namespace lab6
                 }
                 picDisplay.Invalidate(); 
             }
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
 
         }
     }

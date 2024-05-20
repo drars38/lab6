@@ -11,7 +11,7 @@ namespace lab6
     {
         public float X; // ну точка же, вот и две координаты
         public float Y;
-        public Color Color;
+        Color color;
         
         // абстрактный метод с помощью которого будем изменять состояние частиц
         // например притягивать 
@@ -22,7 +22,7 @@ namespace lab6
         public virtual void Render(Graphics g)
         {
             g.FillEllipse(
-                    new SolidBrush(Color.Red),
+                    new SolidBrush(color),
                     X - 5,
                     Y - 5,
                     10,
