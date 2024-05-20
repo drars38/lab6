@@ -31,10 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.picDisplay = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tbDirection = new System.Windows.Forms.TrackBar();
             this.lblDirection = new System.Windows.Forms.Label();
-            this.tbGraviton = new System.Windows.Forms.TrackBar();
-            this.tbGraviton2 = new System.Windows.Forms.TrackBar();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
@@ -48,10 +45,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.trackBarRadius = new System.Windows.Forms.TrackBar();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbDirection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
@@ -79,16 +74,6 @@
             this.timer1.Interval = 40;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // tbDirection
-            // 
-            this.tbDirection.Location = new System.Drawing.Point(12, 494);
-            this.tbDirection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbDirection.Maximum = 359;
-            this.tbDirection.Name = "tbDirection";
-            this.tbDirection.Size = new System.Drawing.Size(140, 56);
-            this.tbDirection.TabIndex = 1;
-            this.tbDirection.Scroll += new System.EventHandler(this.tbDirection_Scroll);
-            // 
             // lblDirection
             // 
             this.lblDirection.AutoSize = true;
@@ -97,26 +82,6 @@
             this.lblDirection.Size = new System.Drawing.Size(0, 16);
             this.lblDirection.TabIndex = 2;
             this.lblDirection.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // tbGraviton
-            // 
-            this.tbGraviton.Location = new System.Drawing.Point(207, 494);
-            this.tbGraviton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbGraviton.Maximum = 100;
-            this.tbGraviton.Name = "tbGraviton";
-            this.tbGraviton.Size = new System.Drawing.Size(140, 56);
-            this.tbGraviton.TabIndex = 3;
-            this.tbGraviton.Scroll += new System.EventHandler(this.tbGraviton_Scroll);
-            // 
-            // tbGraviton2
-            // 
-            this.tbGraviton2.Location = new System.Drawing.Point(378, 494);
-            this.tbGraviton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbGraviton2.Maximum = 100;
-            this.tbGraviton2.Name = "tbGraviton2";
-            this.tbGraviton2.Size = new System.Drawing.Size(140, 56);
-            this.tbGraviton2.TabIndex = 4;
-            this.tbGraviton2.Scroll += new System.EventHandler(this.tbGraviton2_Scroll);
             // 
             // trackBar1
             // 
@@ -236,18 +201,29 @@
             // 
             // trackBarRadius
             // 
-            this.trackBarRadius.Location = new System.Drawing.Point(541, 568);
+            this.trackBarRadius.Location = new System.Drawing.Point(378, 492);
             this.trackBarRadius.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.trackBarRadius.Maximum = 100;
             this.trackBarRadius.Name = "trackBarRadius";
             this.trackBarRadius.Size = new System.Drawing.Size(140, 56);
             this.trackBarRadius.TabIndex = 17;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(396, 534);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(122, 16);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Диаметр кружков";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1501, 668);
+            this.ClientSize = new System.Drawing.Size(1501, 560);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.trackBarRadius);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -261,19 +237,13 @@
             this.Controls.Add(this.trackBar3);
             this.Controls.Add(this.trackBar2);
             this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.tbGraviton2);
-            this.Controls.Add(this.tbGraviton);
             this.Controls.Add(this.lblDirection);
-            this.Controls.Add(this.tbDirection);
             this.Controls.Add(this.picDisplay);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picDisplay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbDirection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGraviton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
@@ -290,10 +260,7 @@
 
         private System.Windows.Forms.PictureBox picDisplay;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TrackBar tbDirection;
         private System.Windows.Forms.Label lblDirection;
-        private System.Windows.Forms.TrackBar tbGraviton;
-        private System.Windows.Forms.TrackBar tbGraviton2;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.TrackBar trackBar3;
@@ -307,6 +274,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TrackBar trackBarRadius;
+        private System.Windows.Forms.Label label7;
     }
 }
 

@@ -13,10 +13,8 @@ namespace lab6
 {
     public partial class Form1 : Form
     {
-        List<Emmiter> emitters = new List<Emmiter>();
+       
         Emmiter emitter;
-        GravityPoint point1; // добавил поле под первую точку
-        GravityPoint point2; // добавил поле под вторую точку
         private ColorPoint colorPoint1;
         private ColorPoint colorPoint2;
         private ColorPoint colorPoint3;
@@ -32,35 +30,28 @@ namespace lab6
                 GravitationY = 0.25f
             };
            
-            point1 = new GravityPoint
-            {
-                X = picDisplay.Width / 2 + 100,
-                Y = picDisplay.Height / 2,
-            };
-            point2 = new GravityPoint
-            {
-                X = picDisplay.Width / 2 - 100,
-                Y = picDisplay.Height / 2,
-            };
+           
+           
             // Инициализация точек ColorPoint
-            colorPoint1 = new ColorPoint { Color = Color.Red, Radius = 30, X = 50, Y = 50 };
+            colorPoint1 = new ColorPoint { Color = Color.Red, Radius = 50, X = 50, Y = 50 };
             colorPoint2 = new ColorPoint { Color = Color.Green, Radius = 30, X = 100, Y = 100 };
             colorPoint3 = new ColorPoint { Color = Color.Blue, Radius = 30, X = 150, Y = 150 };
 
 
 
             // привязываем поля к эмиттеру
-            emitter.impactPoints.Add(point1);
-            emitter.impactPoints.Add(point2);
+            
             emitter.impactPoints.Add(colorPoint1);
             emitter.impactPoints.Add(colorPoint2);
             emitter.impactPoints.Add(colorPoint3);
+
             trackBar1.Maximum = picDisplay.Width;
             trackBar2.Maximum = picDisplay.Height;
             trackBar3.Maximum = picDisplay.Width;
             trackBar4.Maximum = picDisplay.Height;
             trackBar5.Maximum = picDisplay.Width;
             trackBar6.Maximum = picDisplay.Height;
+
             trackBar1.Scroll += (sender, e) => { colorPoint1.X = trackBar1.Value; Refresh(); };
             trackBar2.Scroll += (sender, e) => { colorPoint1.Y = trackBar2.Value; Refresh(); };
             trackBar3.Scroll += (sender, e) => { colorPoint2.X = trackBar3.Value; Refresh(); };
@@ -113,38 +104,19 @@ namespace lab6
        
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
         {
-            foreach (var emitter in emitters)
-            {
-                emitter.MousePositionX = e.X;
-                emitter.MousePositionY = e.Y;
-            }
+            
 
-            // а тут передаем положение мыши, в положение гравитона
-     //       point2.X = e.X;
-     //       point2.Y = e.Y;
+          
         }
 
-        private void tbDirection_Scroll(object sender, EventArgs e)
-        {
-            emitter.Direction = tbDirection.Value; // направлению эмиттера присваиваем значение ползунка 
-            lblDirection.Text = $"{tbDirection.Value}°"; // добавил вывод значения
-
-        }
+      
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tbGraviton_Scroll(object sender, EventArgs e)
-        {
-           point1.Power = tbGraviton.Value;
-        }
-
-        private void tbGraviton2_Scroll(object sender, EventArgs e)
-        {
-            point2.Power = tbGraviton2.Value;
-        }
+        
 
         private void picDisplay_MouseClick(object sender, MouseEventArgs e)
         {
@@ -179,6 +151,11 @@ namespace lab6
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

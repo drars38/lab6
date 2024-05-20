@@ -28,7 +28,7 @@ namespace lab6
         public float GravitationX = 0;
         public float GravitationY = 0;
         public List<IImpactPoint> impactPoints = new List<IImpactPoint>(); // 
-        public int ParticlesCount = 500;
+        
 
         public void UpdateState()
         {
@@ -52,7 +52,7 @@ namespace lab6
                     particle.Y += particle.SpeedY;
 
                     particle.Life -= 1;
-                    // каждая точка по-своему воздействует на вектор скорости
+                    // каждая точка по-своему воздействует 
                     foreach (var point in impactPoints)
                     {
                         point.ImpactParticle(particle);
@@ -81,7 +81,7 @@ namespace lab6
                 particle.Draw(g);
             }
 
-            // рисую точки притяжения красными кружочками
+            // рисую точки 
             foreach (var point in impactPoints)
             {
                 point.Render(g);
@@ -92,15 +92,6 @@ namespace lab6
         public virtual void ResetParticle(Particle particle)
         {
             particle.Life = 20 + Particle.rand.Next(100);
-            particle.X = MousePositionX;
-            particle.Y = MousePositionY;
-
-            var direction = (double)Particle.rand.Next(360);
-            var speed = 1 + Particle.rand.Next(10);
-
-            particle.SpeedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed);
-            particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
-
             particle.Radius = 2 + Particle.rand.Next(10);
             
         }
