@@ -22,7 +22,7 @@ namespace lab6
         public int ParticlesPerTick = 15;
         public Color ColorFrom = Color.White; // начальный цвет частицы
         public Color ColorTo = Color.FromArgb(0, Color.Black); // конечный цвет частиц
-        List<Particle> particles = new List<Particle>();
+        List<ParticleColorful> particles = new List<ParticleColorful>();
         public int MousePositionX;
         public int MousePositionY;
         public float GravitationX = 0;
@@ -70,7 +70,7 @@ namespace lab6
                 particlesToCreate -= 1;
                 var particle = CreateParticle();
                 ResetParticle(particle);
-                particles.Add(particle);
+                particles.Add((ParticleColorful)particle);
             }
         }
 
